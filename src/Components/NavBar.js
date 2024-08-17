@@ -1,11 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function NavBar() {
+// props are shorthand of Properties
+
+// Here this will be displayed by default, sometimes we might forget that we have added props but did not passed props then this will be displayed instead
+export default function NavBar(props, {title = 'TextUtils',aboutText='About TextUtils' }) { 
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">TextUtils</a>
+                    {/* Here instead of title you can also use {props.title} */}
+                    <a className="navbar-brand" href="/">{title}</a> 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -15,7 +20,8 @@ export default function NavBar() {
                                 <a className="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/">About</a>
+                                {/* Here instead of aboutText you can also use {props.aboutText} */}
+                                <a className="nav-link" href="/">{aboutText}</a>
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
@@ -27,4 +33,10 @@ export default function NavBar() {
             </nav>
         </>
     )
+}
+
+// We are specifying the prop types like it must be string, number, object, etc.
+NavBar.propTypes = {
+    title: PropTypes.string.isRequired,
+    aboutText: PropTypes.string
 }
