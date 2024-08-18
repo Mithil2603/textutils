@@ -59,12 +59,21 @@ export default function TextForm(props) {
                     <label htmlFor="myBox" className="form-label"><h2>{props.heading}</h2></label>
                     <textarea onChange={handleOnChange} className="form-control" id="myBox" rows="7" value={text} placeholder='Enter text here'></textarea>
                 </div>
-                <button className="btn btn-dark" onClick={handleUpClick}>Convert to Uppercase</button>
-                <button className="btn btn-dark" onClick={handleLoClick}>Convert to Lowercase</button>
-                <button className="btn btn-dark" onClick={reverseText}>Reverse Text</button>
-                <button className="btn btn-dark" onClick={wordCount}>Count Words</button>
-                <button className="btn btn-dark" onClick={removeSpaces}>Remove Extra Spaces</button>
-                <button className="btn btn-dark" onClick={copy}>Copy</button>
+                <div className="flex">
+                    <button className="btn btn-dark" onClick={handleUpClick}>Convert to Uppercase</button>
+                    <button className="btn btn-dark" onClick={handleLoClick}>Convert to Lowercase</button>
+                    <button className="btn btn-dark" onClick={reverseText}>Reverse Text</button>
+                    <button className="btn btn-dark" onClick={wordCount}>Count Words</button>
+                    <button className="btn btn-dark" onClick={copy}>Copy</button>
+                    <button className="btn btn-dark" onClick={removeSpaces}>Remove Extra Spaces</button>
+                </div>
+            </div>
+            <div className="container my-4">
+                <h1>Your Text Summary</h1>
+                <p>{text.split(" ").length} words, {text.length} characters</p>
+                <p>This will take {0.008 * text.split(" ").length} Minutes to read</p>
+                <h2>Preview</h2>
+                <p>{text}</p>
             </div>
         </>
     )
