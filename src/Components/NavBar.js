@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 // props are shorthand of Properties
 
 // Here this will be displayed by default, sometimes we might forget that we have added props but did not passed props then this will be displayed instead
-export default function NavBar(props, {title = 'TextUtils',aboutText='About TextUtils' }) { 
+export default function NavBar(props, { title = 'TextUtils', aboutText = 'About TextUtils' }) {
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+            {/* <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}> */}
+            <nav className={`navbar navbar-expand-lg bg-dark navbar-dark`}>
                 <div className="container-fluid">
                     {/* Here instead of title you can also use {props.title} */}
-                    <a className="navbar-brand" href="/">{title}</a> 
+                    <a className="navbar-brand" href="/">{title}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -24,10 +25,15 @@ export default function NavBar(props, {title = 'TextUtils',aboutText='About Text
                                 <a className="nav-link" href="/">{aboutText}</a>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
+                        {/* <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}> */}
+                        <div className={`form-check form-switch text-light`}>
+                            <input onClick={props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='dark'?'Light':'Dark'} Mode</label>
+                        </div>
+                        {/* <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-light" type="submit">Search</button>
-                        </form>
+                        </form> */}
                     </div>
                 </div>
             </nav>
