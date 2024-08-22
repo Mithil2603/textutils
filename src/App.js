@@ -47,7 +47,7 @@ function App() {
         <NavBar title="TextUtils" aboutText="About TextUtils" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <Routes>
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about" element={<About />} mode={mode} toggleMode={toggleMode} />
           <Route exact path="/" element={<TextForm heading="Enter the text to analyse below" />} />
         </Routes>
       </Router>

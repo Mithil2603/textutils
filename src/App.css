@@ -5,3 +5,11 @@
 .form-control{
     font-size: 1.2rem;
 }
+
+.logo {
+    width: 3rem;
+}
+
+.container-fluid .mainlogo{
+    max-height: 3em;
+}
